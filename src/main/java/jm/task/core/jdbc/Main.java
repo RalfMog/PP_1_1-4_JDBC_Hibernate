@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         // реализуйте алгоритм здесь
 //        Util.getConnection();
-        UserDao userDao = new UserDaoHibernateImpl();
+//        UserDao userDao = new UserDaoHibernateImpl();
 //
 //        userDao.createUsersTable();
 //
@@ -19,7 +19,7 @@ public class Main {
 
 //        userDao.removeUserById(1);
 //        userDao.removeUserById(7);
-        System.out.println(userDao.getAllUsers());
+//        System.out.println(userDao.getAllUsers());
 //        userDao.cleanUsersTable();
 
 //        userDao.dropUsersTable();

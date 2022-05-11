@@ -2,6 +2,7 @@ package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
+import jm.task.core.jdbc.util.Util;
 
 
 public class Main {
@@ -9,7 +10,8 @@ public class Main {
         // реализуйте алгоритм здесь
 //        Util.getConnection();
 //        UserDao userDao = new UserDaoHibernateImpl();
-//
+
+
 //        userDao.createUsersTable();
 //
 //        userDao.saveUser("Name1", "LastName1", (byte) 20);
@@ -19,9 +21,11 @@ public class Main {
 
 //        userDao.removeUserById(1);
 //        userDao.removeUserById(7);
-//        System.out.println(userDao.getAllUsers());
-//        userDao.cleanUsersTable();
 
+//            userDao.getAllUsers();
+
+//        userDao.cleanUsersTable();
+//
 //        userDao.dropUsersTable();
     }
 }

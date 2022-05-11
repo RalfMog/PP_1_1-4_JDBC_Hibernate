@@ -18,6 +18,9 @@ public class Util {
     private static final String PASSWORD = "bestuser";
     private static SessionFactory sessionFactory;
 
+    private Util() {
+    }
+
     public static Util getInstance() {
         Util localInstance = instance;
         if (localInstance == null) {

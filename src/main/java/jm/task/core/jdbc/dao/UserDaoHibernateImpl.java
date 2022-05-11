@@ -27,12 +27,7 @@ public class UserDaoHibernateImpl implements UserDao {
                     "NAME varchar(64) NOT NULL,\n" +
                     "LASTNAME varchar(100) NOT NULL,\n" +
                     "AGE tinyint NOT NULL)").executeUpdate();
-            session.getTransaction().commit();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            if (transaction.isActive()) {
-                transaction.rollback();
-            }
+            transaction.commit();
         } finally {
             session.close();
         }
@@ -44,12 +39,7 @@ public class UserDaoHibernateImpl implements UserDao {
         transaction = session.beginTransaction();
         try {
             session.createSQLQuery("DROP TABLE IF EXISTS USER").executeUpdate();
-            session.getTransaction().commit();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            if (transaction.isActive()) {
-                transaction.rollback();
-            }
+            transaction.commit();
         } finally {
             session.close();
         }
@@ -61,7 +51,7 @@ public class UserDaoHibernateImpl implements UserDao {
         transaction = session.beginTransaction();
         try {
             session.save(new User(name, lastName, age));
-            session.getTransaction().commit();
+            transaction.commit();
         } catch (HibernateException e) {
             e.printStackTrace();
             if (transaction.isActive()) {
@@ -79,7 +69,7 @@ public class UserDaoHibernateImpl implements UserDao {
         try {
             User user = session.get(User.class, id);
             session.delete(user);
-            session.getTransaction().commit();
+            transaction.commit();
         } catch (HibernateException e) {
             e.printStackTrace();
             if (transaction.isActive()) {
@@ -98,12 +88,7 @@ public class UserDaoHibernateImpl implements UserDao {
         try {
             users = session.createQuery("from User")
                     .getResultList();
-            session.getTransaction().commit();
-        } catch (HibernateException e) {
-            e.printStackTrace();
-            if (transaction.isActive()) {
-                transaction.rollback();
-            }
+            transaction.commit();
         } finally {
             session.close();
         }
@@ -116,7 +101,7 @@ public class UserDaoHibernateImpl implements UserDao {
         transaction = session.beginTransaction();
         try {
             session.createSQLQuery("truncate table User").executeUpdate();
-            session.getTransaction().commit();
+            transaction.commit();
         } catch (HibernateException e) {
             e.printStackTrace();
             if (transaction.isActive()) {

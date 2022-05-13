@@ -108,7 +108,6 @@ public class UserDaoHibernateImpl implements UserDao {
                 session.close();
             }
         }
-        users.forEach(System.out::println);
         return users;
     }
 
